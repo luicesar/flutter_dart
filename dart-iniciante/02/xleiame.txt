@@ -1,0 +1,13 @@
+Comandos:
+Criar apenas os arquivos:
+- index.html
+- link.dart
+- script.dart
+
+-- roda apenas uma vez, caso não tenha instalado
+* pub global activate webdev 
+
+-- o comando abaixo vai gerar outros arquivos
+* dart2js -o script.js script.dart
+
+-- depois só rodar o index em um servidor qualquer, php, .net
