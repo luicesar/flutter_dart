@@ -13,6 +13,37 @@ void main() {
             fontWeight: FontWeight.bold,
           ),
         ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            FlatButton(
+              child: Text(
+                '+1',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 40.0,
+                  fontStyle: FontStyle.italic,
+                ),
+              ),
+              onPressed: () {
+                print('Clicou +1.');
+              },
+            ),
+            FlatButton(
+              child: Text(
+                '-1',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 40.0,
+                  fontStyle: FontStyle.italic,
+                ),
+              ),
+              onPressed: () {
+                print('Clicou -1.');
+              },
+            ),
+          ],
+        ),
         Text(
           'Pode Entrar!',
           style: TextStyle(
