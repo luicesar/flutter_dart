@@ -30,6 +30,41 @@ class _HomePageState extends State<HomePage> {
           )
         ],
       ),
+      backgroundColor: Colors.white,
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          Icon(
+            Icons.person_outline,
+            size: 120.0,
+            color: Colors.green,
+          ),
+          TextField(
+            keyboardType: TextInputType.number,
+            decoration: InputDecoration(
+              labelText: 'Pessoa (kg)',
+              labelStyle: TextStyle(color: Colors.green),
+            ),
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              color: Colors.green,
+              fontSize: 20.00,
+            ),
+          ),
+          TextField(
+            keyboardType: TextInputType.number,
+            decoration: InputDecoration(
+              labelText: 'Altura',
+              labelStyle: TextStyle(color: Colors.green),
+            ),
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              color: Colors.green,
+              fontSize: 20.00,
+            ),
+          )
+        ],
+      ),
     );
   }
 }
