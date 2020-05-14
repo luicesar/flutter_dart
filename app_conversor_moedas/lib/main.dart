@@ -27,11 +27,46 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Colors.amber,
         centerTitle: true,
       ),
+      body: FutureBuilder<Map>(
+          future: getData(),
+          builder: (context, snapshot) {
+            switch (snapshot.connectionState) {
+              case ConnectionState.none:
+              case ConnectionState.waiting:
+                return Center(
+                  child: Text(
+                    'Carregando dados...',
+                    style: TextStyle(
+                      color: Colors.amber,
+                      fontSize: 20.0,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                );
+              default:
+                if (snapshot.hasError) {
+                  return Center(
+                    child: Text(
+                      'Erro ao carregador os dados.',
+                      style: TextStyle(
+                        color: Colors.amber,
+                        fontSize: 20.0,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  );
+                } else {
+                  return Container(
+                    color: Colors.green,
+                  );
+                }
+            }
+          }),
     );
   }
 }
 
-Future<Map> getData(String url) async {
+Future<Map> getData() async {
   http.Response response = await http.get(url);
   return json.decode(response.body);
 }
