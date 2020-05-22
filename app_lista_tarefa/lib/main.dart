@@ -16,7 +16,20 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List _toDoList = ["Daniel", "João", "Pedro"];
+  final _todoController = TextEditingController();
+
+  List _toDoList = [];
+
+  void _addTodo() {
+    setState(() {
+      Map<String, dynamic> newTodo = Map();
+      newTodo['title'] = _todoController.text;
+      newTodo['ok'] = false;
+      _todoController.text = '';
+
+      _toDoList.add(newTodo);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,13 +53,14 @@ class _HomePageState extends State<HomePage> {
                           color: Colors.blueAccent,
                         ),
                       ),
+                      controller: _todoController,
                     ),
                   ),
                   RaisedButton(
                       color: Colors.blueAccent,
                       child: Text('Add'),
                       textColor: Colors.white,
-                      onPressed: () {})
+                      onPressed: _addTodo)
                 ],
               ),
             ),
@@ -62,7 +76,11 @@ class _HomePageState extends State<HomePage> {
                         child: Icon(_toDoList[index]['ok']
                             ? Icons.check
                             : Icons.error)),
-                    onChanged: null,
+                    onChanged: (value) {
+                      setState(() {
+                        _toDoList[index]['ok'] = value;
+                      });
+                    },
                   );
                 },
               ),
