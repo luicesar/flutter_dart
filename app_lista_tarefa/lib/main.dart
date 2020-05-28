@@ -159,6 +159,7 @@ class _HomePageState extends State<HomePage> {
             duration: Duration(seconds: 2),
           );
 
+          Scaffold.of(context).removeCurrentSnackBar();
           Scaffold.of(context).showSnackBar(snackbar);
         });
       },
